@@ -1,7 +1,7 @@
 
 #include "Zombie.hpp"
 
-Zombie::Zombie(const std::string name) {
+Zombie::Zombie(const std::string& name) {
 	_name = name;
 	std::cout << name << " has just started to looking for a fresh brain." << std::endl;
 }
