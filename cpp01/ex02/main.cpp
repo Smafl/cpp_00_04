@@ -9,7 +9,7 @@ int main()
 //  reference: cannot be NULL,
 //  when it is initialized to an object, it cannot be changed to refer to another object,
 //  if must be initialized when it is created
-	std::string& stringREF = str;
+	std::string &stringREF = str;
 
 //  print all addresses:
 	std::cout << "The memory address of the string variable: " << &str << std::endl;

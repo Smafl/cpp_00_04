@@ -5,11 +5,11 @@ CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC =	main.cpp\
-		HumanA.cpp\
-		HumanB.cpp\
-		Weapon.cpp
+		Weapon.cpp\
+		HumanA.cpp
+#		HumanB.cpp\
 OBJ_DIR = obj
-HEADER = HumanA.hpp HumanB.hpp Weapon.hpp
+HEADER = Weapon.hpp HumanA.hpp #HumanB.hpp
 OBJ = $(SRC:.cpp=$(OBJ_DIR)/.o)
 
 all: $(NAME)

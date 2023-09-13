@@ -1,8 +1,16 @@
 //
-// Created by Elena Kulichkova on 12.09.23.
+//#ifndef HUMANB_HPP
+//#define HUMANB_HPP
 //
-
-#ifndef CPP_MODULES_HUMANB_HPP
-#define CPP_MODULES_HUMANB_HPP
-
-#endif //CPP_MODULES_HUMANB_HPP
+//#include <iostream>
+//#include "Weapon.hpp"
+//
+//class HumanB : public Weapon {
+//	private:
+//		std::string _name;
+//	public:
+//		HumanB();
+//		~HumanB();
+//};
+//
+//#endif // HUMANB_HPP

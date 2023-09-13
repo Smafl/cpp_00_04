@@ -1,6 +1,6 @@
 
 #ifndef ZOMBIE_HPP
-# define ZOMBIE_HPP
+#define ZOMBIE_HPP
 
 #include <iostream>
 
@@ -10,15 +10,15 @@ class Zombie {
 		std::string _name;
 	public:
 	//	constructor
-		explicit Zombie(const std::string& name);
+		explicit Zombie(const std::string &name);
 	//	destructor
 		~Zombie();
 		void announce();
 };
 
 // todo: check link &
-Zombie* newZombie(const std::string& name);
-void    randomChump(const std::string& name);
+Zombie* newZombie(const std::string &name);
+void    randomChump(const std::string &name);
 
 #endif // ZOMBIE_HPP
 
