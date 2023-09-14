@@ -5,11 +5,12 @@ CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC = phonebook.cpp
+HEADER = phonebook.hpp
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
 
-$(NAME): $(SRC)
+$(NAME): $(SRC) $(HEADER)
 	@$(CC) $(FLAGS) $(SRC) -o $(NAME)
 	@printf "compiled\n"
 

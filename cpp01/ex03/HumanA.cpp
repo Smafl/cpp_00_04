@@ -1,14 +1,10 @@
 
 #include "HumanA.hpp"
 
-HumanA::HumanA(std::string &name, Weapon &type) : _name(name) {
-	std::cout << "Human A was created and get weapon " << name << weapon.getType() << std::endl;
-}
+HumanA::HumanA(const char *name, Weapon &type) : _name(name), weapon(type) {}
 
-HumanA::~HumanA() {
-	std::cout << "Human A was destroyed." << std::endl;
-}
+HumanA::~HumanA() {}
 
 void HumanA::attack() {
-	;
+	std::cout << _name << " attacks with their " << weapon.getType() << std::endl;
 }
