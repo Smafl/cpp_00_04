@@ -6,10 +6,10 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC =	main.cpp\
 		Weapon.cpp\
-		HumanA.cpp
-#		HumanB.cpp\
+		HumanA.cpp\
+		HumanB.cpp
 OBJ_DIR = obj
-HEADER = Weapon.hpp HumanA.hpp #HumanB.hpp
+HEADER = Weapon.hpp HumanA.hpp HumanB.hpp
 OBJ = $(SRC:.cpp=$(OBJ_DIR)/.o)
 
 all: $(NAME)

@@ -12,7 +12,7 @@ class HumanB {
 		HumanB(const char *name);
 		~HumanB();
 		Weapon *weapon;
-		void setWeapon(Weapon &weapon);
+		void setWeapon(Weapon &type);
 		void attack();
 };
 
