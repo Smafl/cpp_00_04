@@ -32,6 +32,4 @@ add_executable(cpp_modules
 #		cpp01/ex03/HumanB.hpp
 #	CPP 01 - EX 04
 		cpp01/ex04/main.cpp
-		cpp01/ex04/replace.cpp
-		cpp01/ex04/replace.hpp
 )
