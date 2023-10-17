@@ -11,35 +11,32 @@ int replace(const char *filename, const std::string &s1, const std::string &s2)
 	std::ifstream infile(filename);
 
 	// if the file cannot be opened, the stream's failbit flag is set:
-//	if (infile.rdstate() & std::ifstream::failbit)
-//	{
-//		std::cerr << "File cannot be opened" << std::endl;
-//		return EXIT_FAILURE;
-//	}
+	if (infile.rdstate() & std::ifstream::failbit)
+	{
+		std::cerr << "File cannot be opened" << std::endl;
+		return EXIT_FAILURE;
+	}
 	if (s1.empty())
 	{
 		std::cerr << "Nothing to replace." << std::endl;
 		return EXIT_FAILURE;
 	}
 
-	// stringstream's empty constructor: constructs an object with an empty sequence as content
-	// stringstream's initialization constructor: constructs an object with a copy of str as content
-	std::stringstream buffer;
-
-	// read from file and return a string object with a copy of content
-	buffer << infile.rdbuf();
-	std::string file_content(buffer.str());
-
+	// assigns a new value to the string, replacing its current contents
+	// iterators read successive elements from a stream buffer
+	std::string file_content;
+	file_content.assign(std::istreambuf_iterator<char>(infile), std::istreambuf_iterator<char>());
+	
 	std::string name(filename);
 	name += ".replace";
 
 	// create a new file and check if it's open
 	std::ofstream new_file(name);
-//	if (infile.rdstate() & std::ifstream::failbit)
-//	{
-//		std::cerr << "New file cannot be opened" << std::endl;
-//		return EXIT_FAILURE;
-//	}
+	if (infile.rdstate() & std::ifstream::failbit)
+	{
+		std::cerr << "New file cannot be opened" << std::endl;
+		return EXIT_FAILURE;
+	}
 
 	std::string::size_type len_s1(s1.length());
 	std::string::size_type len_s2(s2.length());
