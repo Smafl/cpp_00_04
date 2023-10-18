@@ -6,14 +6,14 @@
 #include "Weapon.hpp"
 
 class HumanB {
-	private:
-		std::string _name;
-	public:
-		HumanB(const char *name);
-		~HumanB();
-		Weapon *weapon;
-		void setWeapon(Weapon &type);
-		void attack();
+private:
+	std::string _name;
+public:
+	HumanB(const char *name);
+	~HumanB();
+	Weapon *weapon;
+	void setWeapon(Weapon &type);
+	void attack();
 };
 
 #endif // HUMANB_HPP

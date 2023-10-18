@@ -5,18 +5,17 @@
 #include <iostream>
 
 class Zombie {
-	private:
-	//	attributes
-		std::string _name;
-	public:
-	//	constructor
-		explicit Zombie(const std::string &name);
-	//	destructor
-		~Zombie();
-		void announce();
+private:
+//	attributes
+	std::string _name;
+public:
+//	constructor
+	explicit Zombie(const std::string &name);
+//	destructor
+	~Zombie();
+	void announce();
 };
 
-// todo: check link &
 Zombie* newZombie(const std::string &name);
 void    randomChump(const std::string &name);
 
