@@ -1,9 +1,14 @@
 
 #include "HumanB.hpp"
 
-HumanB::HumanB(const char *name) : _name(name) {}
+HumanB::HumanB(const char *name) :
+	_name(name) {
 
-HumanB::~HumanB() {}
+}
+
+HumanB::~HumanB() {
+
+}
 
 void HumanB::setWeapon(Weapon &type) {
 	weapon = &type;
