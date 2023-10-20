@@ -5,6 +5,7 @@ CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC =	main.cpp\
+		contact.cpp\
 		phonebook.cpp
 HEADER = phonebook.hpp
 OBJ = $(SRC:.cpp=.o)

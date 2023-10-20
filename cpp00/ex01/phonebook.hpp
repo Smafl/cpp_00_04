@@ -6,14 +6,14 @@
 
 // public by default
 struct Contact {
-	std::string phone_number;
 	std::string first_name;
 	std::string last_name;
 	std::string nickname;
+	std::string phone_number;
 	std::string secret;
 
-	// Contact();
-	// ~Contact();
+	Contact();
+	~Contact();
 	void print() const;
 };
 
@@ -28,7 +28,7 @@ public:
 	void add(const Contact &contact);
 
 	// const here belong to this
-	void print_all() const; // if user input search
+	void print_all() const; // if user cmd search
 	const Contact &get(unsigned int index) const;
 };
 
