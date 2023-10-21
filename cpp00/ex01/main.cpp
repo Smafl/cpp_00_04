@@ -1,23 +1,8 @@
 
+#include "phonebook.hpp"
 #include <iostream>
 #include <stdexcept>
-#include "phonebook.hpp"
-
-const Contact get_info() {
-	Contact contact;
-
-	std::cout << "Enter first name: " << std::endl;
-	std::getline(std::cin, contact.first_name);
-	std::cout << "Enter last name: " << std::endl;
-	std::getline(std::cin, contact.last_name);
-	std::cout << "Enter nickname: " << std::endl;
-	std::getline(std::cin, contact.nickname);
-	std::cout << "Enter phone number: " << std::endl;
-	std::getline(std::cin, contact.phone_number);
-	std::cout << "Enter darkest secret: " << std::endl;
-	std::getline(std::cin, contact.secret);
-	return contact;
-}
+#include <cstdlib>
 
 int main()
 {
@@ -28,15 +13,21 @@ int main()
 		std::cout << "Type a command: ADD, SEARCH or EXIT" << std::endl;
 		std::getline(std::cin, cmd);
 		if (cmd == "ADD" || cmd == "add") {
-			pb.add(get_info());
+			pb.add(Contact::input());
 		}
 		else if (cmd == "SEARCH" || cmd == "search") {
-			// try {
-			// 	pb.get(12);
-			// } catch (const std::exception &e) {
-			// 	std::cerr << e.what() << std::endl;
-			// }
-			pb.print_all();
+			if (pb.print_all())
+				continue;
+			std::cout << "Enter index for more info:" << std::endl;
+			std::string str_index;
+			std::getline(std::cin, str_index);
+			try {
+				unsigned int index = std::stoi(str_index);
+				const Contact &contact = pb.get(index - 1);
+				contact.print();
+			} catch (const std::exception &e) {
+				std::cerr << "Index out of range" << std::endl;
+			}
 		}
 		else if (cmd == "EXIT" || cmd == "exit")
 			break;
@@ -47,17 +38,3 @@ int main()
 	}
 	return 0;
 }
-
-/*
-try {
-	pb.get(12);
-	// throw PhoneBook();
-	// throw 22.2;
-} catch (const std::exception &e) {
-	std::cerr << e.what() << std::endl;
-} catch (const PhoneBook &pb) {
-	std::cerr << "phonebook" << std::endl;
-} catch (int x) {
-	std::cerr << "int" << x << std::endl;
-}
-*/

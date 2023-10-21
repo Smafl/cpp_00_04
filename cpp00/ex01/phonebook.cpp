@@ -25,13 +25,13 @@ void PhoneBook::add(const Contact &contact) {
 }
 
 void print_headline() {
-	std::cout << std::setfill(' ') << std::setw(10) << "Index";
+	std::cout << std::setfill(' ') << std::setw(10) << "INDEX";
 	std::cout << "|";
-	std::cout << std::setfill(' ') << std::setw(10) << "First name";
+	std::cout << std::setfill(' ') << std::setw(10) << "FIRST NAME";
 	std::cout << "|";
-	std::cout << std::setfill(' ') << std::setw(10) << "Last name";
+	std::cout << std::setfill(' ') << std::setw(10) << "LAST NAME";
 	std::cout << "|";
-	std::cout << std::setfill(' ') << std::setw(10) << "Nickname" << std::endl;
+	std::cout << std::setfill(' ') << std::setw(10) << "NICKNAME" << std::endl;
 }
 
 std::string truncate(std::string str) {
@@ -44,19 +44,23 @@ std::string truncate(std::string str) {
 	return new_str;
 }
 
-// start from _first!
 // const here belong to this
-void PhoneBook::print_all() const {
+int PhoneBook::print_all() const {
+	if (_count == 0) {
+		std::cout << "Phonebook is empty. Use ADD command to add a contact" << std::endl;
+		return EXIT_FAILURE;
+	}
 	print_headline();
-	for (unsigned int i = 0; i != this->_count; i++) {
+	for (unsigned int i = 0; i != _count; i++) {
 		std::cout << std::setfill(' ') << std::setw(10) << i + 1;
 		std::cout << "|";
-		std::cout << std::setfill(' ') << std::setw(10) << truncate(this->_contact[i].first_name);
+		std::cout << std::setfill(' ') << std::setw(10) << truncate(_contact[(_first + i) % 8].first_name);
 		std::cout << "|";
-		std::cout << std::setfill(' ') << std::setw(10) << truncate(this->_contact[i].last_name);
+		std::cout << std::setfill(' ') << std::setw(10) << truncate(_contact[(_first + i) % 8].last_name);
 		std::cout << "|";
-		std::cout << std::setfill(' ') << std::setw(10) << truncate(this->_contact[i].nickname) << std::endl;
+		std::cout << std::setfill(' ') << std::setw(10) << truncate(_contact[(_first + i) % 8].nickname) << std::endl;
 	}
+	return EXIT_SUCCESS;
 }
 
 const Contact &PhoneBook::get(unsigned int index) const {

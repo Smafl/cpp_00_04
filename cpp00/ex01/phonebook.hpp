@@ -12,9 +12,9 @@ struct Contact {
 	std::string phone_number;
 	std::string secret;
 
-	Contact();
-	~Contact();
 	void print() const;
+	// static funct doesn't need an object to be called
+	static Contact input();
 };
 
 class PhoneBook {
@@ -28,7 +28,7 @@ public:
 	void add(const Contact &contact);
 
 	// const here belong to this
-	void print_all() const; // if user cmd search
+	int print_all() const; // if user cmd search
 	const Contact &get(unsigned int index) const;
 };
 
