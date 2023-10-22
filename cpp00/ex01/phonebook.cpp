@@ -54,11 +54,11 @@ int PhoneBook::print_all() const {
 	for (unsigned int i = 0; i != _count; i++) {
 		std::cout << std::setfill(' ') << std::setw(10) << i + 1;
 		std::cout << "|";
-		std::cout << std::setfill(' ') << std::setw(10) << truncate(_contact[(_first + i) % 8].first_name);
+		std::cout << std::setfill(' ') << std::setw(10) << truncate(_contact[(_first + i) % 8].get_first_name());
 		std::cout << "|";
-		std::cout << std::setfill(' ') << std::setw(10) << truncate(_contact[(_first + i) % 8].last_name);
+		std::cout << std::setfill(' ') << std::setw(10) << truncate(_contact[(_first + i) % 8].get_last_name());
 		std::cout << "|";
-		std::cout << std::setfill(' ') << std::setw(10) << truncate(_contact[(_first + i) % 8].nickname) << std::endl;
+		std::cout << std::setfill(' ') << std::setw(10) << truncate(_contact[(_first + i) % 8].get_nickname()) << std::endl;
 	}
 	return EXIT_SUCCESS;
 }
