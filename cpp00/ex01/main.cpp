@@ -13,7 +13,7 @@ int main()
 		std::cout << "Type a command: ADD, SEARCH or EXIT" << std::endl;
 		std::getline(std::cin, cmd);
 		if (cmd == "ADD" || cmd == "add") {
-			pb.add(Contact::input());
+			pb.add(Contact::set_input());
 		}
 		else if (cmd == "SEARCH" || cmd == "search") {
 			if (pb.print_all())

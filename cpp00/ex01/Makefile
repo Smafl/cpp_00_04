@@ -1,7 +1,7 @@
 
 NAME = phonebook
 
-CC = c++
+CC = clang++
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC =	main.cpp\

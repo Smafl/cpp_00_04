@@ -2,6 +2,16 @@
 #include "phonebook.hpp"
 #include <iostream>
 
+static std::string get_input() {
+	std::string input;
+	std::getline(std::cin, input);
+	while (input.empty()) {
+		std::cerr << "Field cannot be empty. Enter info:" << std::endl;
+		std::getline(std::cin, input);
+	}
+	return input;
+}
+
 void Contact::set_first_name(const std::string& first_name) {
     _first_name = first_name;
 }
@@ -22,23 +32,23 @@ void Contact::set_secret(const std::string& secret) {
     _secret = secret;
 }
 
-const std::string& Contact::get_first_name() const {
+const std::string &Contact::get_first_name() const {
     return _first_name;
 }
 
-const std::string& Contact::get_last_name() const {
+const std::string &Contact::get_last_name() const {
     return _last_name;
 }
 
-const std::string& Contact::get_nickname() const {
+const std::string &Contact::get_nickname() const {
     return _nickname;
 }
 
-const std::string& Contact::get_phone() const {
+const std::string &Contact::get_phone() const {
     return _phone;
 }
 
-const std::string& Contact::get_secret() const {
+const std::string &Contact::get_secret() const {
     return _secret;
 }
 
@@ -50,24 +60,18 @@ void Contact::print() const {
 	std::cout << get_secret() << std::endl;
 }
 
-Contact Contact::input() {
+Contact Contact::set_input() {
 	Contact contact;
-	std::string input;
 
 	std::cout << "Enter first name: " << std::endl;
-	std::getline(std::cin, input);
-	contact.set_first_name(input);
+	contact.set_first_name(get_input());
 	std::cout << "Enter last name: " << std::endl;
-	std::getline(std::cin, input);
-	contact.set_last_name(input);
+	contact.set_last_name(get_input());
 	std::cout << "Enter nickname: " << std::endl;
-	std::getline(std::cin, input);
-	contact.set_nickname(input);
+	contact.set_nickname(get_input());
 	std::cout << "Enter phone number: " << std::endl;
-	std::getline(std::cin, input);
-	contact.set_phone(input);
+	contact.set_phone(get_input());
 	std::cout << "Enter darkest secret: " << std::endl;
-	std::getline(std::cin, input);
-	contact.set_secret(input);
+	contact.set_secret(get_input());
 	return contact;
 }
