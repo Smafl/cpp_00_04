@@ -3,11 +3,19 @@
 #include <iostream>
 
 static std::string get_input() {
-	std::string input;
+	std::string input = "default";
 	std::getline(std::cin, input);
+	if (!std::cin.good()) {
+		std::cerr << "Invalid input. Please, restart PhoneBook" << std::endl;
+		return input;
+	}
 	while (input.empty()) {
 		std::cerr << "Field cannot be empty. Enter info:" << std::endl;
 		std::getline(std::cin, input);
+		if (!std::cin.good()) {
+			std::cerr << "Invalid input. Please, restart PhoneBook" << std::endl;
+			break;
+		}
 	}
 	return input;
 }

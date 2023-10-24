@@ -12,6 +12,10 @@ int main()
 	while (true) {
 		std::cout << "Type a command: ADD, SEARCH or EXIT" << std::endl;
 		std::getline(std::cin, cmd);
+		if (!std::cin.good()) {
+			std::cerr << "Invalid input. Please, restart PhoneBook" << std::endl;
+			break;
+		}
 		if (cmd == "ADD" || cmd == "add") {
 			pb.add(Contact::set_input());
 		}
