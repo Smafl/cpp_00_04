@@ -4,8 +4,8 @@
 
 class Fixed {
 private:
-	int _integer;
-	static const int _frac_bits = 8;
+	int _data;
+	static const int _frac_bits;
 public:
 	Fixed();
 	~Fixed();	

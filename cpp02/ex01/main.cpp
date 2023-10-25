@@ -2,6 +2,18 @@
 #include "Fixed.hpp"
 #include <iostream>
 
+std::ostream &print(std::ostream &o, const char *s)
+{
+	o << s;
+	return o;
+}
+
+std::ostream &print(std::ostream &o, int x)
+{
+	o << x;
+	return o;
+}
+
 int main()
 {
 	Fixed a;
@@ -9,7 +21,7 @@ int main()
 	Fixed const c(42.42f);
 	Fixed const d(b);
 	a = Fixed(1234.4321f);
-	std::cout << "a is " << a << std::endl;
+	((std::cout << "a is ") << a) << std::endl;
 	std::cout << "b is " << b << std::endl;
 	std::cout << "c is " << c << std::endl;
 	std::cout << "d is " << d << std::endl;

@@ -2,8 +2,10 @@
 #include "Fixed.hpp"
 #include <iostream>
 
+const int Fixed::_frac_bits = 8;
+
 Fixed::Fixed() :
-	_integer(0) {
+	_data(0) {
 	std::cout << "Default constructor called" << std::endl;
 }
 
@@ -18,9 +20,9 @@ Fixed::~Fixed() {
 // are almost equivalent -- both copy one object to another. However,
 // the copy constructor initializes new objects, whereas
 // the assignment operator replaces the contents of existing objects
-Fixed::Fixed(const Fixed &fixed) {
+Fixed::Fixed(const Fixed &fixed) : // _data(fixed._data)
+	_data(fixed.getRawBits()) {
 	std::cout << "Copy constructor called" << std::endl;
-	_integer = fixed.getRawBits();
 }
 
 // // copy assigned operator copy values from one object to another already existing object
@@ -30,16 +32,17 @@ Fixed &Fixed::operator=(const Fixed &fixed) {
 	std::cout << "Copy assignment operator called" << std::endl; 
 	if (this == &fixed)
 		return *this;
-	_integer = fixed.getRawBits();
+	// _data = fixed._data;
+	_data = fixed.getRawBits();
 	return *this;
 }
 
 int Fixed::getRawBits() const {
 	std::cout << "getRawBits member function called" << std::endl;
-	return _integer;
+	return _data;
 }
 
 void Fixed::setRawBits(int const raw) {
 	std::cout << "setRawBits member function called" << std::endl;
-	_integer = raw;
+	_data = raw;
 }

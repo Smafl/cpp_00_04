@@ -18,6 +18,8 @@ public:
 	void setRawBits(int const raw);
 	float toFloat() const;
 	int toInt() const;
+
+    Fixed operator+(const Fixed &b) const;
 };
 
 std::ostream &operator<<(std::ostream &o, const Fixed &f);

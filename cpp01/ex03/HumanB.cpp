@@ -2,7 +2,8 @@
 #include "HumanB.hpp"
 
 HumanB::HumanB(const char *name) :
-	_name(name) {
+	_name(name),
+	_weapon(0) {
 
 }
 
@@ -10,7 +11,7 @@ HumanB::~HumanB() {
 
 }
 
-void HumanB::setWeapon(Weapon &type) {
+void HumanB::setWeapon(const Weapon &type) {
 	_weapon = &type;
 }
 

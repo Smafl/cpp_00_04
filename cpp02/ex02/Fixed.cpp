@@ -21,6 +21,13 @@ Fixed::Fixed(const float float_nbr) :
 	std::cout << "Float constructor called" << std::endl;
 }
 
+// [24 bit][8 bit]
+// 0 - 255
+// 3 5/256
+// 11 00000101
+// 0 1/256
+// 0  00000001
+
 Fixed::~Fixed() {
 	std::cout << "Destructor called" << std::endl;
 }
@@ -59,4 +66,14 @@ int Fixed::toInt() const {
 std::ostream &operator<<(std::ostream &out, const Fixed &f) {
 	out << f.toFloat();
 	return out;
+}
+
+// a + b
+Fixed Fixed::operator+(const Fixed &b) const
+{
+    // 2.5 + 3.7 = 6.2
+    // 2500 + 3700 = 6200
+    Fixed r;
+    r._data = _data + b._data;
+    return r;
 }
