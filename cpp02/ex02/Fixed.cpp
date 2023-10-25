@@ -13,9 +13,6 @@ Fixed::Fixed(const int int_nbr) :
 	std::cout << "Int constructor called" << std::endl;
 }
 
-// 10 * 2^8 = 10 << 8
-// 2  * 2^8 = 2 << 8 = 512 = 2 ^ 9
-// 1  * 2^8 = 1 << 8 = 2^8
 Fixed::Fixed(const float float_nbr) :
 	_data(float_nbr * (1 << _frac_bits)) {
 	std::cout << "Float constructor called" << std::endl;

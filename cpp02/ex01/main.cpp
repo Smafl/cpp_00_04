@@ -2,18 +2,6 @@
 #include "Fixed.hpp"
 #include <iostream>
 
-std::ostream &print(std::ostream &o, const char *s)
-{
-	o << s;
-	return o;
-}
-
-std::ostream &print(std::ostream &o, int x)
-{
-	o << x;
-	return o;
-}
-
 int main()
 {
 	Fixed a;

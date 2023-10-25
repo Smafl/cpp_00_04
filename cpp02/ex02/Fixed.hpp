@@ -20,6 +20,8 @@ public:
 	int toInt() const;
 
     Fixed operator+(const Fixed &b) const;
+
+	static 
 };
 
 std::ostream &operator<<(std::ostream &o, const Fixed &f);

@@ -20,8 +20,9 @@ Fixed::~Fixed() {
 // are almost equivalent -- both copy one object to another. However,
 // the copy constructor initializes new objects, whereas
 // the assignment operator replaces the contents of existing objects
-Fixed::Fixed(const Fixed &fixed) : // _data(fixed._data)
-	_data(fixed.getRawBits()) {
+Fixed::Fixed(const Fixed &fixed) :
+//	_data(fixed._data) {			// how recommended
+	_data(fixed.getRawBits()) {		// according subject
 	std::cout << "Copy constructor called" << std::endl;
 }
 
@@ -32,8 +33,8 @@ Fixed &Fixed::operator=(const Fixed &fixed) {
 	std::cout << "Copy assignment operator called" << std::endl; 
 	if (this == &fixed)
 		return *this;
-	// _data = fixed._data;
-	_data = fixed.getRawBits();
+//	_data = fixed._data;			// how recommended
+	_data = fixed.getRawBits();		// according subject
 	return *this;
 }
 
