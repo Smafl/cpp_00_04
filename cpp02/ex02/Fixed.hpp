@@ -11,17 +11,45 @@ public:
 	Fixed();
 	Fixed(const int int_nbr);
 	Fixed(const float float_nbr);
-	~Fixed();	
+	~Fixed();
 	Fixed(const Fixed &fixed);
 	Fixed &operator=(const Fixed &fixed);
+
+//	getter/setter
 	int getRawBits() const;
 	void setRawBits(int const raw);
+
+//	convertion
 	float toFloat() const;
 	int toInt() const;
 
-    Fixed operator+(const Fixed &b) const;
+//	comparison operators
+	bool operator>(const Fixed &a) const;
+	bool operator<(const Fixed &a) const;
+	bool operator>=(const Fixed &a) const;
+	bool operator<=(const Fixed &a) const;
+	bool operator==(const Fixed &a) const;
+	bool operator!=(const Fixed &a) const;
 
-	static 
+//	arithmetic operators
+	Fixed operator+(const Fixed &a) const;
+	Fixed operator-(const Fixed &a) const;
+	Fixed operator*(const Fixed &a) const;
+	Fixed operator/(const Fixed &a) const;
+
+//	increment/decrement
+//	(pre-increment and post-increment,
+//	pre-decrement and post-decrement) operators
+	Fixed &operator++();
+	Fixed &operator--();
+	Fixed operator++(int);
+	Fixed operator--(int);
+
+//	min/max
+	static Fixed &min(Fixed &a, Fixed &b);
+	static const Fixed &min(const Fixed &a, const Fixed &b);
+	static Fixed &max(Fixed &a, Fixed &b);
+	static const Fixed &max(const Fixed &a, const Fixed &b);
 };
 
 std::ostream &operator<<(std::ostream &o, const Fixed &f);

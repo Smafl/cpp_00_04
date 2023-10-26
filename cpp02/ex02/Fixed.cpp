@@ -4,54 +4,36 @@
 #include <cmath>
 
 Fixed::Fixed() :
-	_data(0) {
-	std::cout << "Default constructor called" << std::endl;
-}
+	_data(0) { }
 
 Fixed::Fixed(const int int_nbr) :
-	_data(int_nbr << _frac_bits) {
-	std::cout << "Int constructor called" << std::endl;
-}
+	_data(int_nbr << _frac_bits) { }
 
 Fixed::Fixed(const float float_nbr) :
-	_data(float_nbr * (1 << _frac_bits)) {
-	std::cout << "Float constructor called" << std::endl;
-}
+	_data(float_nbr * (1 << _frac_bits)) { }
 
-// [24 bit][8 bit]
-// 0 - 255
-// 3 5/256
-// 11 00000101
-// 0 1/256
-// 0  00000001
+Fixed::~Fixed() { }
 
-Fixed::~Fixed() {
-	std::cout << "Destructor called" << std::endl;
-}
-
-Fixed::Fixed(const Fixed &fixed) {
-	std::cout << "Copy constructor called" << std::endl;
-	_data = fixed.getRawBits();
-}
+Fixed::Fixed(const Fixed &fixed) :
+	_data(fixed._data) { }
 
 Fixed &Fixed::operator=(const Fixed &fixed) {
-	std::cout << "Copy assignment operator called" << std::endl; 
 	if (this == &fixed)
 		return *this;
-	_data = fixed.getRawBits();
+	_data = fixed._data;
 	return *this;
 }
 
+// GETTER/SETTER
 int Fixed::getRawBits() const {
-	std::cout << "getRawBits member function called" << std::endl;
 	return _data;
 }
 
 void Fixed::setRawBits(int const raw) {
-	std::cout << "setRawBits member function called" << std::endl;
 	_data = raw;
 }
 
+// CONVERTION
 float Fixed::toFloat() const {
 	return float(_data) / (1 << _frac_bits);
 }
@@ -60,17 +42,104 @@ int Fixed::toInt() const {
 	return _data >> _frac_bits;
 }
 
+// COMPARISON OPERATORS
+bool Fixed::operator>(const Fixed &a) const {
+	return _data > a._data;
+}
+bool Fixed::operator<(const Fixed &a) const {
+	return _data < a._data;
+}
+bool Fixed::operator>=(const Fixed &a) const {
+	return _data >= a._data;
+}
+bool Fixed::operator<=(const Fixed &a) const {
+	return _data <= a._data;
+}
+bool Fixed::operator==(const Fixed &a) const {
+	return _data == a._data;
+}
+bool Fixed::operator!=(const Fixed &a) const {
+	return _data != a._data;
+}
+
+// ARITHMETIC OPERATORS
+Fixed Fixed::operator+(const Fixed &a) const
+{
+	Fixed r;
+	r._data = _data + a._data;
+	return r;
+}
+
+Fixed Fixed::operator-(const Fixed &a) const {
+	Fixed r;
+	r._data = _data - a._data;
+	return r;
+}
+
+Fixed Fixed::operator*(const Fixed &a) const {
+	Fixed r;
+	r._data = static_cast<float>((static_cast<long>(_data) * static_cast<long>(a._data)) >> _frac_bits);
+	return r;
+}
+
+Fixed Fixed::operator/(const Fixed &a) const {
+	Fixed r;
+	r._data = (static_cast<long>(_data << _frac_bits) / static_cast<long>(a._data));
+	return r;
+}
+
+// INCREMENT/DECREMENT OPERATORS
+// (pre-increment and post-increment,
+// pre-decrement and post-decrement)
+Fixed &Fixed::operator++() {
+	++_data;
+	return *this;
+}
+
+Fixed &Fixed::operator--() {
+	--_data;
+	return *this;
+}
+
+Fixed Fixed::operator++(int) {
+	Fixed f(*this);
+	++_data;
+	return f;
+}
+
+Fixed Fixed::operator--(int) {
+	Fixed f(*this);
+	--_data;
+	return f;
+}
+
+// MIN/MAX
+Fixed &Fixed::min(Fixed &a, Fixed &b) {
+	if (a._data < b._data)
+		return a;
+	return b;
+}
+
+const Fixed &Fixed::min(const Fixed &a, const Fixed &b) {
+	if (a._data < b._data)
+		return a;
+	return b;
+}
+
+Fixed &Fixed::max(Fixed &a, Fixed &b) {
+	if (a._data > b._data)
+		return a;
+	return b;
+}
+
+const Fixed &Fixed::max(const Fixed &a, const Fixed &b) {
+	if (a._data > b._data)
+		return a;
+	return b;
+}
+
+// stream
 std::ostream &operator<<(std::ostream &out, const Fixed &f) {
 	out << f.toFloat();
 	return out;
-}
-
-// a + b
-Fixed Fixed::operator+(const Fixed &b) const
-{
-    // 2.5 + 3.7 = 6.2
-    // 2500 + 3700 = 6200
-    Fixed r;
-    r._data = _data + b._data;
-    return r;
 }
