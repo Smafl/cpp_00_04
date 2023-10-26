@@ -10,7 +10,7 @@ Fixed::Fixed(const int int_nbr) :
 	_data(int_nbr << _frac_bits) { }
 
 Fixed::Fixed(const float float_nbr) :
-	_data(float_nbr * (1 << _frac_bits)) { }
+	_data(roundf(float_nbr * static_cast<float>(1 << _frac_bits))) {}
 
 Fixed::~Fixed() { }
 
