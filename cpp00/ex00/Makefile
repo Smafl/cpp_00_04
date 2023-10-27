@@ -5,12 +5,12 @@ CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC = megaphone.cpp
-OBJ = $(SRC:.cpp=.o)
+OBJ = $(SRC:%.cpp=%.o)
 
 all: $(NAME)
 
-$(NAME): $(SRC)
-	@$(CXX) $(CXXFLAGS) $(SRC) -o $(NAME)
+$(NAME): $(OBJ)
+	@$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
 	@printf "compiled\n"
 
 clean:
