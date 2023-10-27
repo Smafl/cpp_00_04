@@ -19,7 +19,7 @@ ScavTrap::ScavTrap(const ScavTrap &other) :
 }
 
 ScavTrap &ScavTrap::operator=(const ScavTrap &other) {
-	if (this == &other)
+	if (this != &other)
 		ClapTrap::operator=(other);
 	std::cout << "ScavTrap " << _name << " unit was assigned with assigned operator." << std::endl;
 	return *this;

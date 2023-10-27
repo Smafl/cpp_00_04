@@ -42,14 +42,12 @@ ClapTrap::ClapTrap(const ClapTrap &other) :
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &other) {
-	if (this == &other) {
-		std::cout << "ClapTrap " << _name << " unit was assigned with assigned operator." << std::endl;
-		return *this;
+	if (this != &other) {
+		_name = other._name;
+		_hitPoints = other._hitPoints;
+		_energyPoints = other._energyPoints;
+		_attackDamage = other._attackDamage;
 	}
-	_name = other._name;
-	_hitPoints = other._hitPoints;
-	_energyPoints = other._energyPoints;
-	_attackDamage = other._attackDamage;
 	std::cout << "ClapTrap " << _name << " unit was assigned with assigned operator." << std::endl;
 	return *this;
 }

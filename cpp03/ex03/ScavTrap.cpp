@@ -3,13 +3,17 @@
 #include "ScavTrap.hpp"
 #include <iostream>
 
+const unsigned int ScavTrap::defaultHitPoints = 100;
+const unsigned int ScavTrap::defaultEnergyPoints = 50;
+const unsigned int ScavTrap::defaultAttackDamage = 20;
+
 ScavTrap::ScavTrap() :
-	ClapTrap(100, 50, 20) {
+	ClapTrap(ScavTrap::defaultHitPoints, ScavTrap::defaultEnergyPoints, ScavTrap::defaultAttackDamage) {
 	std::cout << "ScavTrap nameless unit was created." << std::endl;
 }
 
 ScavTrap::ScavTrap(const std::string &name) :
-	ClapTrap(name, 100, 50, 20) {
+	ClapTrap(name, ScavTrap::defaultHitPoints, ScavTrap::defaultEnergyPoints, ScavTrap::defaultAttackDamage) {
 	std::cout << "ScavTrap unit was created and named as " << _name << "." << std::endl;
 }
 
