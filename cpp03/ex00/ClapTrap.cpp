@@ -51,11 +51,10 @@ void ClapTrap::attack(const std::string &target) {
 		std::cout << "ClapTrap " << _name << " does not have enough energy to attack." << std::endl;
 		return;
 	}
-	if (_attackDamage == 0) {
+	if (_attackDamage == 0)
 		std::cout << "ClapTrap " << _name << " is trying to attack but this amount of damage is not hirtfull." << std::endl;
-		return;
-	}
-	std::cout << "ClapTrap " << _name << " attacks " << target << ", causing " << _attackDamage << " points of damage!" << std::endl;
+	else
+		std::cout << "ClapTrap " << _name << " attacks " << target << ", causing " << _attackDamage << " points of damage!" << std::endl;
 	_energyPoints--;
 }
 void ClapTrap::takeDamage(unsigned int amount) {
