@@ -4,7 +4,7 @@
 #include <iostream>
 
 class ClapTrap {
-private:
+protected:
 	std::string		_name;
 	unsigned int	_hitPoints; // represent the health
 	unsigned int	_energyPoints;
@@ -12,12 +12,14 @@ private:
 public:
 	ClapTrap();
 	ClapTrap(const std::string &name);
+	ClapTrap(unsigned int hitPoints, unsigned int energyPoints, unsigned int attackDamage);
+	ClapTrap(std::string name, unsigned int hitPoints, unsigned int energyPoints, unsigned int attackDamage);
 	ClapTrap(const ClapTrap &other);
 	ClapTrap &operator=(const ClapTrap &other);
 	~ClapTrap();
 
 //	actions
-	void attack(const std::string &target);
+	virtual void attack(const std::string &target);
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
 
