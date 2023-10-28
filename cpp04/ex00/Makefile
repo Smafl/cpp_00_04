@@ -1,14 +1,21 @@
 
-NAME = zombie
+NAME = animal
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC =	main.cpp \
-		Zombie.cpp \
-		zombieHorde.cpp
+SRC =		main.cpp \
+			Animal.cpp \
+			Cat.cpp \
+			Dog.cpp \
+			WrongAnimal.cpp \
+			WrongCat.cpp
+HEADER =	Animal.hpp \
+			Cat.hpp \
+			Dog.hpp \
+			WrongAnimal.hpp \
+			WrongCat.hpp
 OBJ_DIR = obj
-HEADER = Zombie.hpp
 OBJ = $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 
 all: $(NAME)

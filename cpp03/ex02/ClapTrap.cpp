@@ -53,7 +53,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &other) {
 }
 
 ClapTrap::~ClapTrap() {
-	std::cout << "ClapTrap unit " << _name << " was destroed." << std::endl;
+	std::cout << "ClapTrap unit " << _name << " was destroyed." << std::endl;
 }
 
 // ACTIONS

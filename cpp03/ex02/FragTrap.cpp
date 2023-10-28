@@ -26,7 +26,7 @@ FragTrap &FragTrap::operator=(const FragTrap &other) {
 }
 
 FragTrap::~FragTrap() {
-	std::cout << "FragTrap unit " << _name << " was destroed." << std::endl;
+	std::cout << "FragTrap unit " << _name << " was destroyed." << std::endl;
 }
 
 // ACTIONS

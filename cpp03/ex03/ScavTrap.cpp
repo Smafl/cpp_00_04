@@ -30,7 +30,7 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &other) {
 }
 
 ScavTrap::~ScavTrap() {
-	std::cout << "ScavTrap unit " << _name << " was destroed." << std::endl;
+	std::cout << "ScavTrap unit " << _name << " was destroyed." << std::endl;
 }
 
 // ACTIONS

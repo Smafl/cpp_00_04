@@ -2,31 +2,30 @@
 NAME = zombie
 
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
 
-SRC =	main.cpp\
-		newZombie.cpp\
-		randomChump.cpp\
-		Zombie.cpp
+SRC =	main.cpp \
+		Zombie.cpp \
+		newZombie.cpp \
+		randomChump.cpp
 OBJ_DIR = obj
 HEADER = Zombie.hpp
-OBJ = $(SRC:.cpp=$(OBJ_DIR)/.o)
+OBJ = $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 
-all: $(NAME)
+all: $(OBJ_DIR) $(NAME)
 
 $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
 
-$(NAME): $(SRC)
-	@$(CXX) $(CXXFLAGS) $(SRC) -o $(NAME)
+$(OBJ_DIR)/%.o: %.cpp $(HEADER) Makefile
+	@$(CXX) $(CXXFLAGS) -c $< -o $@
+
+$(NAME): $(OBJ)
+	@$(CXX) $(CXXFLAGS) $^ -o $@
 	@printf "compiled\n"
 
-$(OBJ_DIR)/%.o: %.c $(HEADER) Makefile | $(OBJ_DIR)
-	@mkdir -p $(dir $@)
-	@cc $(CXXFLAGS) -c $< -o $@
-
 clean:
-	@rm -f $(OBJ)
+	@rm -rf $(OBJ_DIR)
 	@printf "cleaned\n"
 
 fclean: clean

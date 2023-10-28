@@ -38,7 +38,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &other) {
 }
 
 ClapTrap::~ClapTrap() {
-	std::cout << "ClapTrap unit " << _name << " was destroed." << std::endl;
+	std::cout << "ClapTrap unit " << _name << " was destroyed." << std::endl;
 }
 
 // ACTIONS
@@ -57,6 +57,7 @@ void ClapTrap::attack(const std::string &target) {
 		std::cout << "ClapTrap " << _name << " attacks " << target << ", causing " << _attackDamage << " points of damage!" << std::endl;
 	_energyPoints--;
 }
+
 void ClapTrap::takeDamage(unsigned int amount) {
 	if (_hitPoints == 0) {
 		std::cout << "ClapTrap " << _name << " is alredy dead and cannot take more damage." << std::endl;
