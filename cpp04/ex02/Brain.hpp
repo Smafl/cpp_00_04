@@ -5,7 +5,7 @@
 
 class Brain {
 protected:
-	std::string _ideas[100];
+	std::string _ideas[10];
 public:
 	Brain();
 	Brain(const Brain &other);
