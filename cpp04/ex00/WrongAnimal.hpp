@@ -13,5 +13,5 @@ public:
 	~WrongAnimal();
 
 	std::string getType() const;
-	virtual void makeSound() const;
+	void makeSound() const;
 };

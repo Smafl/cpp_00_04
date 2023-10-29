@@ -19,12 +19,10 @@ int main()
 	// WrongCat wcat;
 	// wa.makeSound();
 	// wcat.makeSound();
-	const WrongAnimal* meta = new WrongAnimal();
 	const Animal* j = new Dog();
 	const WrongAnimal* i = new WrongCat();
 	std::cout << j->getType() << " " << std::endl;
 	std::cout << i->getType() << " " << std::endl;
 	i->makeSound();
-	meta->makeSound();
 	return 0;
 }
