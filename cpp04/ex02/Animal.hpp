@@ -40,8 +40,8 @@ public:
 
 // you can call member functions from a constructor or destructor
 // of an abstract class. However, the results of calling
-//  (directly or indirectly) a pure virtual function from its
-//  constructor are undefined
+// (directly or indirectly) a pure virtual function from its
+// constructor are undefined
 
 // pure virtual should be function(s) which doesn't have
 // realisation here

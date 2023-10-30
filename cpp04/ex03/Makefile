@@ -5,8 +5,12 @@ CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC =		main.cpp \
-			AMateria.cpp
-HEADER =	AMateria.hpp
+			AMateria.cpp \
+			Ice.cpp \
+			Cure.cpp
+HEADER =	AMateria.hpp \
+			Ice.cpp \
+			Cure.hpp
 OBJ_DIR = obj
 OBJ = $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 
