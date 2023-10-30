@@ -18,12 +18,13 @@ public:
 //	it's generally not overridden in derived classes
 	Animal &operator=(const Animal &other);
 
-//	shoud be virtual and always public
+//	has to be virtual and always public
 	virtual ~Animal();
 
 //	cannot be pure because realisation is here
 	std::string getType() const;
 
+	void swap(Animal &other);
 //	pure virtual (realisation in derived classes)
 	virtual void makeSound() const = 0;
 };

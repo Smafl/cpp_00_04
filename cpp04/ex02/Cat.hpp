@@ -13,5 +13,6 @@ public:
 	Cat &operator=(const Cat &other);
 	~Cat();
 
+	void swap(Cat &cat);
 	void makeSound() const;
 };

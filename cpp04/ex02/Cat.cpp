@@ -10,14 +10,15 @@ Cat::Cat() :
 }
 
 Cat::Cat(const Cat &other) :
-	Animal(other) {
+	Animal(other),
+	_brain(new Brain(*other._brain)) {
 	std::cout << _type << " was copyed" << std::endl;
 }
 
 Cat &Cat::operator=(const Cat &other) {
 	if (this != &other) {
-		Animal::operator=(other);
-		_brain = other._brain;
+		Cat new_cat(other);
+		swap(new_cat);
 	}
 	std::cout << _type << " was assigned with assigned operator" << std::endl;
 	return *this;
@@ -26,6 +27,13 @@ Cat &Cat::operator=(const Cat &other) {
 Cat::~Cat() {
 	delete _brain;
 	std::cout << _type << " was destroyed" << std::endl;
+}
+
+void Cat::swap(Cat &cat) {
+	Animal::swap(cat);
+	Brain *tmp = cat._brain;
+	cat._brain = _brain;
+	_brain = tmp;
 }
 
 void Cat::makeSound() const {
