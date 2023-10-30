@@ -12,4 +12,6 @@ public:
 	Ice(const Ice &other);
 	Ice &operator=(const Ice &other);
 	~Ice();
+
+	void use(ICharacter &target);
 };

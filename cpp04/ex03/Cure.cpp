@@ -19,3 +19,7 @@ Cure &Cure::operator=(const Cure &other) {
 Cure::~Cure() {
 	// delete 
 }
+
+void Cure::use(ICharacter &target) {
+	std::cout << "* heals " << target.getName() << "’s wounds *" << std::endl;
+}

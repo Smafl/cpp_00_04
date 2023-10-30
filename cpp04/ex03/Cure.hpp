@@ -12,4 +12,6 @@ public:
 	Cure(const Cure &other);
 	Cure &operator=(const Cure &other);
 	~Cure();
+
+	void use(ICharacter &target);
 };

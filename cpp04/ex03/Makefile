@@ -7,10 +7,18 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 SRC =		main.cpp \
 			AMateria.cpp \
 			Ice.cpp \
-			Cure.cpp
+			Cure.cpp \
+			IMateriaSource.cpp \
+			ICharacter.cpp \
+			MateriaSource.cpp \
+			Character.cpp
 HEADER =	AMateria.hpp \
 			Ice.cpp \
-			Cure.hpp
+			Cure.hpp \
+			IMateriaSource.hpp \
+			ICharacter.hpp \
+			MateriaSource.hpp \
+			Character.hpp
 OBJ_DIR = obj
 OBJ = $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 
