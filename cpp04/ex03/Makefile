@@ -14,8 +14,8 @@ SRC =		main.cpp \
 			src/Ice.cpp \
 			src/Cure.cpp \
 			src/MateriaSource.cpp \
-			src/Character.cpp
-
+			src/Character.cpp \
+			src/Ground.cpp
 SRC_DIR:=.
 OBJ_DIR:=obj
 OBJ:=$(addprefix $(OBJ_DIR)/,$(subst /,@,$(SRC:.cpp=.o)))

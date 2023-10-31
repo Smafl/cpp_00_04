@@ -5,8 +5,6 @@
 #include <iostream>
 
 class Ice : public AMateria {
-private:
-    std::string _ice;
 public:
 	Ice();
 	Ice(const Ice &other);
