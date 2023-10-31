@@ -22,7 +22,7 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &other) {
 	for (int i = 0; i != 4; i++) {
 		if (_materials[i] != NULL) {
 			delete _materials[i];
-			_materials[i] = other._materials[i]->clone(); // swap?
+			_materials[i] = other._materials[i]->clone();
 		}
 	}
 	return *this;
@@ -30,8 +30,10 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &other) {
 
 MateriaSource::~MateriaSource() {
 	for (int i = 0; i != 4; i++) {
-		if (_materials[i] != NULL)
+		if (_materials[i] != NULL) {
 			delete _materials[i];
+			_materials[i] = NULL;
+		}
 	}
 }
 
@@ -42,12 +44,11 @@ void MateriaSource::learnMateria(AMateria* m) {
 			return;
 		}
 	}
-	// can be leak
 }
 
 AMateria *MateriaSource::createMateria(std::string const &type) {
 	for (int i = 0; i != 4; i++) {
-		if (_materials[i]->getType() == type)
+		if (_materials[i] != NULL && _materials[i]->getType() == type)
 			return _materials[i]->clone();
 	}
 	return NULL;

@@ -8,3 +8,5 @@ cmake-build-debug
 **/*.out
 **/*.o
 **/*.replace
+obj
+temp

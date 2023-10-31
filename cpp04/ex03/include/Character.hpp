@@ -9,9 +9,7 @@ class Character : public ICharacter {
 private:
 	std::string		_name;
 	AMateria		*_inventory[4];
-	// unsigned int	_capacity;
-	// unsigned int	_size;
-	// AMateria		*_ground[1];
+	AMateria		*_ground[50];
 public:
 	Character();
 	Character(const std::string &name);
@@ -21,7 +19,8 @@ public:
 
 	std::string const &getName() const;
 	void equip(AMateria *m);
-	// void unequip(int idx);
+	void unequip(int idx);
 	void use(int idx, ICharacter &target);
 	void print_inventory() const;
+	void print_ground() const;
 };
