@@ -27,7 +27,6 @@ std::string Animal::getType() const {
 	return _type;
 }
 
-
 void Animal::swap(Animal &other) {
 	_type.swap(other._type);
 }

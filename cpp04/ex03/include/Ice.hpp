@@ -13,5 +13,6 @@ public:
 	Ice &operator=(const Ice &other);
 	~Ice();
 
+	AMateria *clone() const;
 	void use(ICharacter &target);
 };

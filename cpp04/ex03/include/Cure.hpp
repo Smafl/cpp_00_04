@@ -13,5 +13,6 @@ public:
 	Cure &operator=(const Cure &other);
 	~Cure();
 
+	AMateria *clone() const;
 	void use(ICharacter &target);
 };

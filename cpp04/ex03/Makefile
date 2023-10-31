@@ -1,42 +1,46 @@
 
-NAME = animal
+NAME = interface
 
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -Wpedantic -MMD -MP -O2 -g
+INCLUDE_DIR=.
 
 SRC =		main.cpp \
-			AMateria.cpp \
-			Ice.cpp \
-			Cure.cpp \
-			IMateriaSource.cpp \
-			ICharacter.cpp \
-			MateriaSource.cpp \
-			Character.cpp
-HEADER =	AMateria.hpp \
-			Ice.cpp \
-			Cure.hpp \
-			IMateriaSource.hpp \
-			ICharacter.hpp \
-			MateriaSource.hpp \
-			Character.hpp
-OBJ_DIR = obj
-OBJ = $(SRC:%.cpp=$(OBJ_DIR)/%.o)
+			src/AMateria.cpp \
+			src/Ice.cpp \
+			src/Cure.cpp \
+			src/MateriaSource.cpp \
+			src/Character.cpp
 
-all: $(NAME)
+SRC_DIR:=.
+OBJ_DIR:=obj
+OBJ:=$(addprefix $(OBJ_DIR)/,$(subst /,@,$(SRC:.cpp=.o)))
+DEPENDS:=$(OBJ:.o=.d)
 
-$(OBJ_DIR)/%.o: %.cpp $(HEADER) Makefile
-	@mkdir -p $(dir $@)
-	@$(CXX) $(CXXFLAGS) -c $< -o $@
+all:
+	@$(MAKE) $(NAME) -j
 
 $(NAME): $(OBJ)
 	@$(CXX) $(CXXFLAGS) $^ -o $@
 	@printf "compiled\n"
 
+-include $(DEPENDS)
+
+.SECONDEXPANSION:
+$(OBJ_DIR)/%.o: $(SRC_DIR)/$$(subst @,/,$$*).cpp
+	@$(CC) $(CXXFLAGS) $(addprefix -iquote ,$(INCLUDE_DIR)) -c $< -o $@
+
+$(OBJ): $(OBJ_DIR)
+
+$(OBJ_DIR):
+	@mkdir -p $(OBJ_DIR)
+
 clean:
-	@rm -rf $(OBJ_DIR)
+	@rm -rf $(OBJ)
 	@printf "cleaned\n"
 
 fclean: clean
+	@rm -rf $(OBJ_DIR)
 	@rm -f $(NAME)
 
 re: fclean all

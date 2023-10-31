@@ -1,5 +1,5 @@
 
-#include "Cure.hpp"
+#include "../include/Cure.hpp"
 #include <iostream>
 
 Cure::Cure() :
@@ -16,10 +16,12 @@ Cure &Cure::operator=(const Cure &other) {
 	return *this;
 }
 
-Cure::~Cure() {
-	// delete 
+Cure::~Cure() { }
+
+AMateria *Cure::clone() const {
+	return new Cure(*this);
 }
 
 void Cure::use(ICharacter &target) {
-	std::cout << "* heals " << target.getName() << "’s wounds *" << std::endl;
+	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
 }
