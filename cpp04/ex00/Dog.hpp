@@ -1,5 +1,6 @@
 
-#pragma once
+#ifndef DOG_HPP
+#define DOG_HPP
 
 #include "Animal.hpp"
 
@@ -12,3 +13,5 @@ public:
 
 	void makeSound() const;
 };
+
+#endif // DOG_HPP

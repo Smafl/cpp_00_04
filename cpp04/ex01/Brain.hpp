@@ -1,5 +1,6 @@
 
-#pragma once
+#ifndef BRAIN_HPP
+#define BRAIN_HPP
 
 #include <iostream>
 
@@ -12,3 +13,5 @@ public:
 	Brain &operator=(const Brain &other);
 	~Brain();
 };
+
+#endif // BRAIN_HPP

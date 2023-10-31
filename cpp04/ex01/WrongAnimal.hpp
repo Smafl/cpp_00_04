@@ -1,5 +1,6 @@
 
-#pragma once
+#ifndef WRNOGANIMAL_HPP
+#define WRNOGANIMAL_HPP
 
 #include <iostream>
 
@@ -15,3 +16,5 @@ public:
 	std::string getType() const;
 	virtual void makeSound() const;
 };
+
+#endif // WRNOGANIMAL_HPP

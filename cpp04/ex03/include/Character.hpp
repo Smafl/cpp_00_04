@@ -1,5 +1,6 @@
 
-#pragma once
+#ifndef CHARACTER_HPP
+#define CHARACTER_HPP
 
 #include "AMateria.hpp"
 #include "ICharacter.hpp"
@@ -22,3 +23,5 @@ public:
 	void use(int idx, ICharacter &target);
 	void print_inventory() const;
 };
+
+#endif // CHARACTER_HPP

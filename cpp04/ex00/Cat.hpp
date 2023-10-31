@@ -1,5 +1,6 @@
 
-#pragma once
+#ifndef CAT_HPP
+#define CAT_HPP
 
 #include "Animal.hpp"
 
@@ -12,3 +13,5 @@ public:
 
 	void makeSound() const;
 };
+
+#endif // CAT_HPP

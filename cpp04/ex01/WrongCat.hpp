@@ -1,5 +1,6 @@
 
-#pragma once
+#ifndef WRONGCAT_HPP
+#define WRONGCAT_HPP
 
 #include "WrongAnimal.hpp"
 
@@ -12,3 +13,5 @@ public:
 
 	void makeSound() const;
 };
+
+#endif // WRONGCAT_HPP

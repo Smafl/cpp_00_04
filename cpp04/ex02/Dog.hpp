@@ -1,5 +1,6 @@
 
-#pragma once
+#ifndef DOG_HPP
+#define DOG_HPP
 
 #include "Animal.hpp"
 #include "Brain.hpp"
@@ -16,3 +17,5 @@ public:
 	void swap(Dog &dog);
 	void makeSound() const;
 };
+
+#endif // DOG_HPP

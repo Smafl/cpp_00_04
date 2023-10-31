@@ -1,5 +1,6 @@
 
-#pragma once
+#ifndef GROUND_HPP
+#define GROUND_HPP
 
 #include "AMateria.hpp"
 
@@ -16,3 +17,5 @@ private:
     Ground(const Ground &other);
     Ground &operator=(const Ground &other);
 };
+
+#endif // GROUND_HPP

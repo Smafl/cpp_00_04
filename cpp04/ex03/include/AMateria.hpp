@@ -1,5 +1,6 @@
 
-#pragma once
+#ifndef AMATERIA_HPP
+#define AMATERIA_HPP
 
 #include "ICharacter.hpp"
 #include <iostream>
@@ -18,3 +19,5 @@ public:
 	virtual AMateria* clone() const = 0;
 	virtual void use(ICharacter &target);
 };
+
+#endif // AMATERIA_HPP

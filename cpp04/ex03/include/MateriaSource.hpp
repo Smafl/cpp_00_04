@@ -1,5 +1,6 @@
 
-#pragma once
+#ifndef MATERIASOURCE_HPP
+#define MATERIASOURCE_HPP
 
 #include "IMateriaSource.hpp"
 
@@ -17,3 +18,5 @@ public:
 
 	void print_materials() const;
 };
+
+#endif // MATERIASOURCE_HPP

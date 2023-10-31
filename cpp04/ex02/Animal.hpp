@@ -1,5 +1,6 @@
 
-#pragma once
+#ifndef ANIMAL_HPP
+#define ANIMAL_HPP
 
 #include <iostream>
 
@@ -28,6 +29,8 @@ public:
 //	pure virtual (realisation in derived classes)
 	virtual void makeSound() const = 0;
 };
+
+#endif // ANIMAL_HPP
 
 // you cannot use an abstract class as a parameter type,
 // a function return type, or the type of an explicit conversion
